@@ -1,0 +1,1 @@
+module.exports = (stamement, func = "log") => console[func](stamement)
