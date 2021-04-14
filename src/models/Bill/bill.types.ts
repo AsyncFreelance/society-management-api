@@ -3,9 +3,19 @@ import { Document, Model, Query } from "mongoose"
 export { Query }
 
 export interface IBill {
-  message: string
+  name: string
+  pollDescription: string
+  yes_votes: number
+  no_votes: number
+  abstain_votes: number
+  voteIDs: string[]
   createdAt?: Date
   updatedAt?: Date
+}
+
+export interface GQLVoteInput {
+  _id: string
+  userID: string
 }
 
 export interface GQLPostBill {
@@ -17,17 +27,28 @@ export interface GQLEditBill {
 }
 
 export interface IBillInput {
-  message: string
+  name: string
+  pollDescription: string
 }
 
 export interface IBillEdit {
   _id: string
-  message: string
+  name: string
+  pollDescription: string
+  yes_votes: number
+  no_votes: number
+  abstain_votes: number
 }
 
 export interface IBillDoc {
   _id: string
-  message: string
+  name: string
+  pollDescription: string
+  yes_votes: number
+  no_votes: number
+  abstain_votes: number
+  voteIDs: string[]
+  error: object
   createdAt?: Date
   updatedAt?: Date
 }

@@ -15,19 +15,28 @@ extend type Mutation {
 
 type EventDoc {
     _id: String
-    message: String
+    title: String
+    location: String
+    postedBy: String
+    description: String
     error: ErrorType
     createdAt: String
     updatedAt: String
 }
 
 input EventInput {
-    message: String
+    title: String!
+    location: String!
+    postedBy: String!
+    description: String!
 }
 
 input EventEdit {
     _id: String!
-    message: String
+    title: String
+    location: String
+    postedBy: String
+    description: String
 }
 
 

@@ -11,23 +11,36 @@ extend type Mutation {
     postBill(BillInput: BillInput!): BillDoc
     editBill(BillEdit: BillEdit!): BillDoc
     removeBill(_id: String!): BillDoc
+    yesVote(_id: String!, userID: String!): BillDoc
+    noVote(_id: String!, userID: String!): BillDoc
+    abstainVote(_id: String!, userID: String!): BillDoc
 }
 
 type BillDoc {
     _id: String
-    message: String
+    name: String
+    pollDescription: String
+    yes_votes: Int
+    no_votes: Int
+    abstain_votes: Int
+    voteIDs: [String]
     error: ErrorType
     createdAt: String
     updatedAt: String
 }
 
 input BillInput {
-    message: String
+    name: String
+    pollDescription: String
 }
 
 input BillEdit {
     _id: String!
-    message: String
+    name: String
+    pollDescription: String
+    yes_votes: Int
+    no_votes: Int
+    abstain_votes: Int
 }
 
 

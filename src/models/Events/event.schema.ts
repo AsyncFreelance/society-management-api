@@ -1,7 +1,16 @@
 import { Schema } from "mongoose"
 
 const EventSchema = new Schema({
-  message: {
+  title: {
+    type: String, unique: false
+  },
+  location: {
+    type: String, unique: false
+  },
+  postedBy: {
+    type: String, unique: false
+  },
+  description: {
     type: String, unique: false
   },
   createdAt: {

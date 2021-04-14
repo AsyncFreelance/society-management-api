@@ -3,7 +3,10 @@ import { Document, Model, Query } from "mongoose"
 export { Query }
 
 export interface IEvent {
-  message: string
+  title: string
+  location: string
+  postedBy: string
+  description: string
   createdAt?: Date
   updatedAt?: Date
 }
@@ -17,17 +20,26 @@ export interface GQLEditEvent {
 }
 
 export interface IEventInput {
-  message: string
+  title: string
+  location: string
+  postedBy: string
+  description: string
 }
 
 export interface IEventEdit {
   _id: string
-  message: string
+  title: string
+  location: string
+  postedBy: string
+  description: string
 }
 
 export interface IEventDoc {
   _id: string
-  message: string
+  title: string
+  location: string
+  postedBy: string
+  description: string
   createdAt?: Date
   updatedAt?: Date
 }

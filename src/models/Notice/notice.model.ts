@@ -2,4 +2,4 @@ import { model } from "mongoose"
 import { INoticeDocument } from "./notice.types"
 import NoticeSchema from "./notice.schema"
 
-export const NoticeModel = model<INoticeDocument>("notices", NoticeSchema)
+export const NoticeModel = model("notices", NoticeSchema)

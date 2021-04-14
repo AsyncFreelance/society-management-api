@@ -4,8 +4,6 @@ export { Query }
 
 export interface INotice {
   message: string
-  createdAt?: Date
-  updatedAt?: Date
 }
 
 export interface GQLPostNotice {
@@ -32,6 +30,6 @@ export interface INoticeDoc {
   updatedAt?: Date
 }
 
-export interface INoticeDocument extends INotice, Document { }
+export interface INoticeDocument extends INotice, Document {}
 
 export interface INoticeModel extends INotice, Model<INoticeDocument> { }
