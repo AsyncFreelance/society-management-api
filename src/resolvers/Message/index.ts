@@ -4,7 +4,7 @@ import DBWrapper from "../../wrappers/APIGenerator"
 import ForumResolver from "../Forum"
 
 const ModelMessage = new DBWrapper(MessageModel)
-const { Create, Edit, Fetch, FetchOne, Remove } = ModelMessage.getAPICalls()
+const { Create, Edit, Fetch, FetchOne, Remove, Find } = ModelMessage.getAPICalls()
 
 const MessageResolver = {
   Query: {
@@ -13,6 +13,9 @@ const MessageResolver = {
     },
     async fetchMessageByID(_: any, prop: any) {
       return await FetchOne(prop._id)
+    },
+    async fetchMessagesByForumID(_: any, prop: any) {
+      return await Find({ forumID: prop.forumID })
     }
   },
 

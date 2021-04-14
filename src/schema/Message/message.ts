@@ -5,6 +5,7 @@ export default gql`
 extend type Query {
     fetchMessages: [MessageDoc!]
     fetchMessageByID(_id: String!): MessageDoc
+    fetchMessagesByForumID(forumID: String!): [MessageDoc]
 }
 
 extend type Mutation {
