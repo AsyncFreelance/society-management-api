@@ -8,9 +8,9 @@ extend type Query {
 }
 
 extend type Mutation {
-    postMessage(MessageInput: MessageInput!): MessageDoc
+    postMessage(MessageInput: MessageInput!): ForumDoc
     editMessage(MessageEdit: MessageEdit!): MessageDoc
-    removeMessage(MessageRemove: MessageRemove!): MessageDoc
+    removeMessage(MessageRemove: MessageRemove!): ForumDoc
 }
 
 type MessageDoc {

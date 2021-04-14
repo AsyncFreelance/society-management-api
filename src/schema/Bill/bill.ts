@@ -20,6 +20,7 @@ type BillDoc {
     _id: String
     name: String
     pollDescription: String
+    voteLimit: Int
     yes_votes: Int
     no_votes: Int
     abstain_votes: Int
@@ -32,12 +33,14 @@ type BillDoc {
 input BillInput {
     name: String
     pollDescription: String
+    voteLimit: Int
 }
 
 input BillEdit {
     _id: String!
     name: String
     pollDescription: String
+    voteLimit: Int
     yes_votes: Int
     no_votes: Int
     abstain_votes: Int

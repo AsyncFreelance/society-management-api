@@ -8,6 +8,7 @@ export interface IBill {
   yes_votes: number
   no_votes: number
   abstain_votes: number
+  voteLimit: number
   voteIDs: string[]
   createdAt?: Date
   updatedAt?: Date
@@ -29,6 +30,7 @@ export interface GQLEditBill {
 export interface IBillInput {
   name: string
   pollDescription: string
+  voteLimit: number
 }
 
 export interface IBillEdit {
@@ -37,6 +39,7 @@ export interface IBillEdit {
   pollDescription: string
   yes_votes: number
   no_votes: number
+  voteLimit: number
   abstain_votes: number
 }
 
@@ -47,6 +50,7 @@ export interface IBillDoc {
   yes_votes: number
   no_votes: number
   abstain_votes: number
+  voteLimit: number
   voteIDs: string[]
   error: object
   createdAt?: Date

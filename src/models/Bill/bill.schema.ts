@@ -7,6 +7,9 @@ const BillSchema = new Schema({
   pollDescription: {
     type: String, unique: false
   },
+  voteLimit: {
+    type: Number, unique: false, default: 1
+  },
   yes_votes: {
     type: Number, unique: false, default: 0
   },

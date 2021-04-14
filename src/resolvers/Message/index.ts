@@ -18,9 +18,9 @@ const MessageResolver = {
 
   Mutation: {
     async postMessage(_: any, prop: GQLPostMessage) {
-      const result = await Create(prop.MessageInput) as any
-      await ForumResolver.Mutation.addMessageToForum({}, {
-        MessageEdit: result
+      const messageResult = await Create(prop.MessageInput) as any
+      const result = await ForumResolver.Mutation.addMessageToForum({}, {
+        MessageEdit: messageResult
       })
       return result
     },
@@ -28,8 +28,8 @@ const MessageResolver = {
       return await Edit(prop.MessageEdit)
     },
     async removeMessage(_: any, prop: GQLRemoveMessage) {
-      const result = await Remove(prop.MessageRemove._id)
-      await ForumResolver.Mutation.removeMessageFromForum({}, {
+      const messageResult = await Remove(prop.MessageRemove._id)
+      const result = await ForumResolver.Mutation.removeMessageFromForum({}, {
         MessageEdit: prop.MessageRemove as any
       })
       return result
