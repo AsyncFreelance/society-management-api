@@ -13,6 +13,9 @@ const Linker = gql`
   type Mutation {
     _: Boolean
   }
+  type Subscription {
+    _: Boolean
+  }
   type ErrorType {
     type: Int
     message: String

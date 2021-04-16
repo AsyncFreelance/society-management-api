@@ -13,6 +13,9 @@ const UserSchema = new Schema({
   password: {
     type: String, unique: false
   },
+  isAdmin: {
+    type: Boolean, unique: false, default: false
+  },
   createdAt: {
     type: String, unique: false, default: String(new Date())
   },

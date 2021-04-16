@@ -18,6 +18,7 @@ extend type Mutation {
 input ILogin {
     email: String
     password: String
+    isAdmin: Boolean
 }
 
 type UserDoc {
@@ -26,6 +27,7 @@ type UserDoc {
     lastName: String
     email: String
     password: String
+    isAdmin: Boolean
     error: ErrorType
     createdAt: String
     updatedAt: String
@@ -36,6 +38,7 @@ input UserInput {
     lastName: String
     email: String
     password: String
+    isAdmin: Boolean
 }
 
 input UserEdit {
@@ -44,6 +47,7 @@ input UserEdit {
     lastName: String
     email: String
     password: String
+    isAdmin: Boolean
 }
 
 

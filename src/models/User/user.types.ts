@@ -7,6 +7,7 @@ export interface IUser {
   lastName: string
   email: string
   password: string
+  isAdmin: boolean
   createdAt?: Date
   updatedAt?: Date
 }
@@ -18,6 +19,7 @@ export interface GQLLoginInput {
 export interface ILogin {
   email: string
   password: string
+  isAdmin: boolean
 }
 
 export interface GQLPostUser {
@@ -33,6 +35,7 @@ export interface IUserInput {
   lastName: string
   email: string
   password: string
+  isAdmin: boolean
 }
 
 export interface IUserEdit {
@@ -41,6 +44,7 @@ export interface IUserEdit {
   lastName: string
   email: string
   password: string
+  isAdmin: boolean
 }
 
 export interface IUserDoc {
@@ -49,6 +53,7 @@ export interface IUserDoc {
   lastName: string
   email: string
   password: string
+  isAdmin: boolean
   createdAt?: Date
   updatedAt?: Date
 }

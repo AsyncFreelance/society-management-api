@@ -15,6 +15,10 @@ extend type Mutation {
     removeForum(_id: String!): ForumDoc
 }
 
+extend type Subscription {
+    forumUpdate: ForumDoc
+}
+
 type IMessageDoc {
     _id: String
     forumID: String

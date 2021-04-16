@@ -2,9 +2,12 @@ import { ForumModel } from "../../models/Forums/forum.model"
 import { GQLEditForum, GQLPostForum, IForumDocument } from "../../models/Forums/forum.types"
 import { GQLEditMessage } from "../../models/Message/message.types"
 import DBWrapper from "../../wrappers/APIGenerator"
+import { constants } from "./subscriptions"
+import { PubSub, withFilter } from "apollo-server-express"
 
 const ModelForum = new DBWrapper(ForumModel)
 const { Create, Edit, Fetch, FetchOne, Remove } = ModelForum.getAPICalls()
+const pubsub = new PubSub()
 
 const ForumResolver = {
   Query: {
@@ -30,10 +33,12 @@ const ForumResolver = {
       const foundForum = await FetchOne(prop.MessageEdit.forumID) as IForumDocument
       if (foundForum) {
         const messages = foundForum.messages.concat(prop.MessageEdit)
-        return await Edit({
+        const editedForum = await Edit({
           _id: prop.MessageEdit.forumID,
           messages
         })
+        await pubsub.publish(constants.MESSAGE_UPDATED, { forumUpdate: editedForum })
+        return editedForum
       } else {
         return null
       }
@@ -50,6 +55,16 @@ const ForumResolver = {
         return null
       }
     },
+  },
+  Subscription: {
+    forumUpdate: {
+      subscribe: withFilter(
+        () => pubsub.asyncIterator(constants.MESSAGE_UPDATED),
+        (payload, variables) => {
+          return true
+        },
+      ),
+    }
   }
 }
 
